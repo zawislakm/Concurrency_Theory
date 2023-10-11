@@ -1,4 +1,4 @@
-package zad2;
+package Lab2.zad2;
 
 public class AddThread implements Runnable {
 

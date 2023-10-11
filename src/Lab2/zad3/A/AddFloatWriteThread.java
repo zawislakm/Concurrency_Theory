@@ -1,16 +1,16 @@
 package Lab2.zad3.A;
 
-public class AddFloatWrite implements Runnable {
+public class AddFloatWriteThread implements Runnable {
 
     AddFloat addFloat;
 
 
-    AddFloatWrite(AddFloat x) {
+    AddFloatWriteThread(AddFloat x) {
         this.addFloat = x;
     }
 
     public void run() {
-        for (int i = 0; i < 100; i++) {
+        while (true){
             addFloat.write();
         }
     }

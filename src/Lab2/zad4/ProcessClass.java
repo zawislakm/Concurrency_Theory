@@ -1,4 +1,4 @@
-package zad4;
+package Lab2.zad4;
 
 public class ProcessClass {
     public boolean tp = false;

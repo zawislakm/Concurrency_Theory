@@ -1,4 +1,4 @@
-package Lab2.zad3;
+package Lab2.zad3.A;
 
 public class AddFloat {
 

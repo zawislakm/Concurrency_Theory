@@ -1,16 +1,16 @@
 package Lab2.example;
 
-public class NicNieRobiacaKlasa {
+public class NothingDoClass {
     public int val = 0;
 
-    public int funkcjaNicNieRobiaca() {
-
-        val++;
-        val--;
-        // wait, or notify
-        // wait oddaje klucz komus to czeka
-        // notify budzi
-        return val;
-
+    synchronized public int functionNothingDo() {
+        synchronized (this) {
+            val++;
+            val--;
+            // wait or notify
+            // wait gives key to someone waiting
+            // notify wakeup
+            return val;
+        }
     }
 }

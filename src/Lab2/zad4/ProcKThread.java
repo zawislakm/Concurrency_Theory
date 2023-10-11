@@ -1,4 +1,4 @@
-package zad4;
+package Lab2.zad4;
 
 public class ProcKThread implements Runnable {
     ProcessClass proc;

@@ -1,11 +1,11 @@
 package Lab2.zad1;
 
-public class Rewolwerowiec implements Runnable {
+public class Gunslinger implements Runnable {
 
     int count;
     static boolean  shotFired = false;
 
-    Rewolwerowiec(int count) {
+    Gunslinger(int count) {
         this.count = count;
     }
 

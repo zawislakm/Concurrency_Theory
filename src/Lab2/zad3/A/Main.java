@@ -1,4 +1,4 @@
-package Lab2.zad3;
+package Lab2.zad3.A;
 
 
 public class Main {
@@ -8,10 +8,10 @@ public class Main {
 
         AddFloat addFloat = new AddFloat();
 
-        AddFloatRead addFloatRead = new AddFloatRead(addFloat);
+        AddFloatReadThread addFloatRead = new AddFloatReadThread(addFloat);
         new Thread(addFloatRead).start();
 
-        AddFloatWrite addFloatWrite = new AddFloatWrite(addFloat);
+        AddFloatWriteThread addFloatWrite = new AddFloatWriteThread(addFloat);
         new Thread(addFloatWrite).start();
 
     }

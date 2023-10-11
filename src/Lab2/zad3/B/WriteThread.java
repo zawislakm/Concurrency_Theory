@@ -1,4 +1,4 @@
-package zad3.B;
+package Lab2.zad3.B;
 
 public class WriteThread implements Runnable {
 

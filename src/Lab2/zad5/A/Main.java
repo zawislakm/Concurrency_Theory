@@ -1,4 +1,4 @@
-package Lab2.A;
+package Lab2.zad5.A;
 
 
 public class Main {
