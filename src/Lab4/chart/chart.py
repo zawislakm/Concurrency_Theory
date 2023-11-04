@@ -13,18 +13,18 @@ def stats():
             cleaned_row.pop()
             stats.append(cleaned_row)
 
-    name = "Wariant 2"
-    philo = [i for i in range(len(stats))]
+    name = "Wariant 3 wersja 2"
+    philo = [i+1 for i in range(len(stats))]
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4) ) # Poprawione "subplots" z "subplot"
     plt.suptitle(f"{name}, N = {len(stats)}")
 
     # ax1.bar(philo, [mean(row) for row in stats])
-    ax1.boxplot(stats)
+    ax1.boxplot(stats,showfliers=False)
     ax1.set_yscale('log')
-    ax1.set_title("Średni czas oczekiwania na widelce")
+    ax1.set_title("Czas oczekiwania na widelce")
     ax1.set_xlabel('Filozofowie')
-    ax1.set_ylabel('Czas [ss]')
+    ax1.set_ylabel('Czas [ns]')
 
     ax2.bar(philo, [len(row) for row in stats])
     ax2.set_title("Liczba podniesionych dwóch widelców")

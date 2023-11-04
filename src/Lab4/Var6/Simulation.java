@@ -50,25 +50,28 @@ class Buffer {
 
 }
 
+
 class Statistic {
-    long start = System.currentTimeMillis();
+
+    long start = System.nanoTime();
     int out_eat = 0;
-    ArrayList<Long> times = new ArrayList<Long>();
+    ArrayList<Long> times = new ArrayList<>();
+
     public void pickUpFork() {
-        times.add(System.currentTimeMillis() - start);
+        times.add(System.nanoTime() - start);
     }
     public void eatingOut() {
         this.out_eat += 1;
     }
     public void putDownFork() {
-        start = System.currentTimeMillis();
+        start = System.nanoTime();
     }
 
     public List<Long> getStats() {
         return this.times;
-
     }
 }
+
 
 class Philosopher extends Thread {
     int id;
@@ -95,24 +98,24 @@ class Philosopher extends Thread {
                 synchronized (this.left_fork) {
                     System.out.println(this.id + " picked up left fork");
                     synchronized (this.right_fork) {
-                        this.stats.pickUpFork();
                         System.out.println(this.id + " picked up right fork");
+                        this.stats.pickUpFork();
                     }
                 }
                 sem.logout();
-                this.stats.putDownFork();
+
                 try {
                     Thread.sleep(10);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
+                this.stats.putDownFork();
             } else {
                 synchronized (this.right_fork) {
                     System.out.println(this.id + " picked up right fork, out sem");
                     synchronized (this.left_fork) {
                         this.stats.pickUpFork();
                         System.out.println(this.id + " picked up left fork, out sem");
-                        this.stats.putDownFork();
                         this.stats.eatingOut();
                     }
                 }
@@ -121,6 +124,7 @@ class Philosopher extends Thread {
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
+                this.stats.putDownFork();
             }
 
 
@@ -140,7 +144,7 @@ class Philosopher extends Thread {
 public class Simulation {
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        int philo_amount = 30;
+        int philo_amount = 5;
         new Buffer(philo_amount);
         LoginSemaphore loginSemaphore = new LoginSemaphore(philo_amount - 1);
         ExecutorService executor = Executors.newFixedThreadPool(philo_amount);

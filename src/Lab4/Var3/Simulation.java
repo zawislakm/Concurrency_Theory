@@ -33,22 +33,20 @@ class Buffer {
 
 class Statistic {
 
-    long start = System.currentTimeMillis();
+    long start = System.nanoTime();
 
-    ArrayList<Long> times = new ArrayList<Long>();
+    ArrayList<Long> times = new ArrayList<>();
 
     public void pickUpFork() {
-
-        times.add(System.currentTimeMillis() - start);
+        times.add(System.nanoTime() - start);
     }
 
     public void putDownFork() {
-        start = System.currentTimeMillis();
+        start = System.nanoTime();
     }
 
     public List<Long> getStats() {
         return this.times;
-
     }
 }
 
@@ -75,23 +73,24 @@ class Philosopher extends Thread {
 
     @Override
     public void run() {
-
+        this.stats.putDownFork();
         while (true) {
             boolean usedFork = false;
             synchronized (this.left_fork) {
                 System.out.println(this.id + " picked up first fork");
                 synchronized (this.right_fork) {
-                    this.stats.pickUpFork();
+
                     System.out.println(this.id + " picked up second fork");
+                    this.stats.pickUpFork();
                     usedFork = true;
                 }
                 if (usedFork) {
-                    this.stats.putDownFork();
                     try {
                         Thread.sleep(10);
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
+                    this.stats.putDownFork();
 
                 }
             }
@@ -108,7 +107,7 @@ class Philosopher extends Thread {
 public class Simulation {
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        int philo_amount = 5;
+        int philo_amount = 20;
         new Buffer(philo_amount);
 
         ExecutorService executor = Executors.newFixedThreadPool(philo_amount);
