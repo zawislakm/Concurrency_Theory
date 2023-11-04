@@ -13,30 +13,32 @@ def stats():
             cleaned_row.pop()
             stats.append(cleaned_row)
 
-    name = "Wariant 6"
+    name = "Wariant 2"
     philo = [i for i in range(len(stats))]
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4) ) # Poprawione "subplots" z "subplot"
     plt.suptitle(f"{name}, N = {len(stats)}")
 
-    ax1.bar(philo, [mean(row) for row in stats])
+    # ax1.bar(philo, [mean(row) for row in stats])
+    ax1.boxplot(stats)
+    ax1.set_yscale('log')
     ax1.set_title("Średni czas oczekiwania na widelce")
     ax1.set_xlabel('Filozofowie')
-    ax1.set_ylabel('Czas [ms]')
+    ax1.set_ylabel('Czas [ss]')
 
     ax2.bar(philo, [len(row) for row in stats])
     ax2.set_title("Liczba podniesionych dwóch widelców")
     ax2.set_xlabel('Filozofowie')
     ax2.set_ylabel('Ilość podniesionych widelców')
 
-    ax1.set_xticks(philo)
+    # ax1.set_xticks(philo)
     ax2.set_xticks(philo)
 
     plt.savefig(name + str(len(stats)))
 
 def eat():
     out_eat = []
-    with open("outeat.csv","r") as f:
+    with open("outeat.csv", "r") as f:
         csvreader = csv.reader(f, delimiter=";")
         for row in csvreader:
             cleaned_row = [int(item) if item.isdigit() else item for item in row]
@@ -54,5 +56,5 @@ def eat():
 
 
 
-eat()
+# eat()
 stats()
