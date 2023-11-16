@@ -1,13 +1,13 @@
 package Lab4.Var4;
 
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.io.FileWriter;
-import java.io.IOException;
+
 class UniqID {
     private static int numerId = 0;
 
@@ -106,7 +106,8 @@ class Philosopher extends Thread {
 
     public List<Long> getStats() {
         return this.stats.getStats();
-    }}
+    }
+}
 
 
 public class Simulation {

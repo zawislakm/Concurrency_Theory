@@ -3,7 +3,7 @@ package Lab2.zad1;
 public class Gunslinger implements Runnable {
 
     int count;
-    static boolean  shotFired = false;
+    static boolean shotFired = false;
 
     Gunslinger(int count) {
         this.count = count;

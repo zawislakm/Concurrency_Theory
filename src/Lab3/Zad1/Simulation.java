@@ -1,7 +1,6 @@
 package Lab3.Zad1;
 
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
 class UniqID {
     private static int numerId = 0;
@@ -14,6 +13,7 @@ class UniqID {
 class Producer extends Thread {
     private Buffer _buf;
     UniqID uniqID = new UniqID();
+
     public Producer(Buffer x) {
         this._buf = x;
     }
@@ -96,7 +96,7 @@ class Buffer {
 public class Simulation {
     public static void main(String[] args) throws InterruptedException {
         // task variables
-        int buffer_size =4;
+        int buffer_size = 4;
         int consumer_amount = 5;
         int producer_amount = 10;
 

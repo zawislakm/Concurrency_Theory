@@ -1,13 +1,12 @@
 package Lab4.Var5;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
-
-import java.io.FileWriter;
-import java.io.IOException;
 
 class LoginSemaphore {
     private Semaphore semaphore;
@@ -110,9 +109,7 @@ class Philosopher extends Thread {
                 this.stats.putDownFork();
 
 
-
             }
-
 
 
         }

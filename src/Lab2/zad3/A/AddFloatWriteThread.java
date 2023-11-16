@@ -10,7 +10,7 @@ public class AddFloatWriteThread implements Runnable {
     }
 
     public void run() {
-        while (true){
+        while (true) {
             addFloat.write();
         }
     }

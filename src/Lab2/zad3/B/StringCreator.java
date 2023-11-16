@@ -4,7 +4,7 @@ public class StringCreator {
 
     public String content = "";
 
-    public void extendString(){
+    public void extendString() {
         this.content += "foo";
         this.content += "bar";
         this.content = "";

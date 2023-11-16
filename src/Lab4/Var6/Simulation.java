@@ -1,13 +1,12 @@
 package Lab4.Var6;
 
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
-import java.io.FileWriter;
-import java.io.IOException;
 
 class LoginSemaphore {
     private Semaphore semaphore;
@@ -60,9 +59,11 @@ class Statistic {
     public void pickUpFork() {
         times.add(System.nanoTime() - start);
     }
+
     public void eatingOut() {
         this.out_eat += 1;
     }
+
     public void putDownFork() {
         start = System.nanoTime();
     }

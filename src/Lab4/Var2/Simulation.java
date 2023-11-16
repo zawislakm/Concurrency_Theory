@@ -1,12 +1,12 @@
 package Lab4.Var2;
 
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.io.IOException;
+import java.util.concurrent.locks.ReentrantLock;
 
 class UniqID {
     private static int numerId = 0;

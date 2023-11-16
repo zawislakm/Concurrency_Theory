@@ -10,9 +10,9 @@ public class Add {
         }
     }
 
-    synchronized static public int incrementStatic(){
-            c++;
-            return c;
+    synchronized static public int incrementStatic() {
+        c++;
+        return c;
 
     }
 }
