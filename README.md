@@ -9,3 +9,5 @@ The repository contains solutions from Concurrency theory (Teoria współbieżno
 4. [Readers–writers problem](https://github.com/zawislakm/Concurrency_theory/tree/master/src/Lab5)
 5. [Normal Forms part 1](https://github.com/zawislakm/Concurrency_theory/tree/master/src/Lab6)
 6. [Normal Forms part 2](https://github.com/zawislakm/Concurrency_theory/tree/master/src/Lab7)
+7. [Concurrent Gauss elimination](https://github.com/zawislakm/Concurrency_theory/tree/master/src/Lab8)
+8. [OpenMP](https://github.com/zawislakm/Concurrency_theory/tree/master/src/Lab9)
